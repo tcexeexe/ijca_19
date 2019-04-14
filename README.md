@@ -1,6 +1,6 @@
 ## Docker Image
 
-**registry.cn-hangzhou.aliyuncs.com/tianchi_tcexeexe/ijca2** 
+**registry.cn-hangzhou.aliyuncs.com/tianchi_tcexeexe/ijcagithub** 
 
 - python2.7 
 - cuda8.0
