@@ -11,6 +11,7 @@ import numpy as np
 from scipy.misc import imread
 from scipy.misc import imresize
 import tensorflow as tf
+from scipy.misc import imresize
 from tensorflow.contrib.slim.nets import inception
 slim = tf.contrib.slim
 
@@ -38,6 +39,7 @@ def load_images(input_dir, batch_shape):
     for filepath in tf.gfile.Glob(os.path.join(input_dir, '*.png')):
         with open(filepath) as f:
             raw_image = imread(f, mode='RGB')
+            raw_image = signal.medfilt2d(np.array(raw_image), kernel_size=5)  
             image = imresize(raw_image, [FLAGS.image_height, FLAGS.image_width]).astype(np.float)
             image = (image / 255.0) * 2.0 - 1.0
         images[idx, :, :, :] = image
